@@ -1,0 +1,31 @@
+{
+  "name": "vue_praca",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "start": "vue-cli-service serve --open"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "mdbvue": "6.5.0",
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.0",
+    "vue-google-charts": "^0.3.2",
+    "vue-page-transition": "^0.2.2",
+    "vue-router": "^3.1.5",
+    "vue-trend-chart": "^0.15.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "vue-cli-plugin-mdb": "~2.0.4",
+    "vue-particles": "^1.0.9",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
