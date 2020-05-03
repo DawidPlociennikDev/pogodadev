@@ -56,8 +56,26 @@ import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardHeader, mdb
 
 import ChartComp from '@/components/ChartComp.vue'
 
+import axios from 'axios';
+
+const api = 'https://api.looko2.com/?method=GetLOOKO&id=5CCF7F0C2E8B&token=1570445090';
+
 export default {
   name: 'Params',
+  data() {
+      return {
+          params: []
+      }
+  },
+  async created() {
+    try {
+        const res = await axios.get(api);
+        this.params = res.data;
+        console.log(this.params);
+    } catch(err) {
+        console.log(err);
+    }
+  },
   props: {
     msg: String
   },

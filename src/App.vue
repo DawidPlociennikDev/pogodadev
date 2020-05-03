@@ -24,15 +24,17 @@
       <mdb-navbar-toggler>
         <mdb-navbar-nav id="nav" center>
           <router-link to="/"><mdb-nav-item href="#" active>Strona główna</mdb-nav-item></router-link>
-          <router-link to="/about"><mdb-nav-item href="#">O uczelni PWSZ</mdb-nav-item></router-link>
+          <mdb-nav-item href="http://www.pwsz.legnica.edu.pl/">O uczelni PWSZ</mdb-nav-item>
           <mdb-dropdown tag="li" class="nav-item">
             <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>Paramtery powietrza</mdb-dropdown-toggle>
             <mdb-dropdown-menu>
-              <router-link to="/params" class="link_dropdown">PM 1</router-link>
-              <router-link to="/params" class="link_dropdown">PM 2.5</router-link>
-              <router-link to="/params" class="link_dropdown">PM 10</router-link>
+              <router-link to="/params/1" class="link_dropdown">PM 1</router-link>
+              <router-link to="/params/2" class="link_dropdown">PM 2.5</router-link>
+              <router-link to="/params/3" class="link_dropdown">PM 10</router-link>
             </mdb-dropdown-menu>
           </mdb-dropdown>
+         <router-link to="/blog"><mdb-nav-item href="#" active>Blog</mdb-nav-item></router-link>
+         <router-link to="/links"><mdb-nav-item href="#" active>Ciekawe linki</mdb-nav-item></router-link>
         </mdb-navbar-nav>
       </mdb-navbar-toggler>
     </mdb-navbar>
@@ -57,6 +59,7 @@
   height: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 #nav {
@@ -127,9 +130,27 @@
 </style>
 
 <script>
-  import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem, mdbDropdown, mdbDropdownMenu, mdbDropdownToggle, mdbInput, mdbDropdownItem } from 'mdbvue';
+  import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem, mdbDropdown, mdbDropdownMenu, mdbDropdownToggle, mdbInput, mdbDropdownItem, mdbIcon } from 'mdbvue';
+  
+  import axios from 'axios';
+  const api = 'http://nowa-www.przedprojekt.com/api/offer';
+
   export default {
     name: 'App',
+    data() {
+        return {
+            blogs: []
+        }
+    },
+    async created() {
+      try {
+          const res = await axios.get(api);
+          this.blogs = res.data.data.reverse();
+          console.log(this.blogs);
+      } catch(err) {
+          console.log(err);
+      }
+    },
     components: {
       mdbNavbar,
       mdbNavbarBrand,
@@ -140,7 +161,8 @@
       mdbDropdownMenu,
       mdbDropdownToggle,
       mdbDropdownItem,
-      mdbInput
+      mdbInput,
+      mdbIcon
     }
   }
 </script>

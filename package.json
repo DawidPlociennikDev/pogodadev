@@ -8,9 +8,11 @@
     "start": "vue-cli-service serve --open"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "chart.js": "^2.9.3",
     "mdbvue": "6.5.0",
     "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
     "vue-chartjs": "^3.5.0",
     "vue-google-charts": "^0.3.2",
     "vue-page-transition": "^0.2.2",
