@@ -1,0 +1,36 @@
+<div class="form-element-area">
+    <form action="<?= base_url($this->uri->segment(1).'/action/'.$this->uri->segment(3).'/'.$this->uri->segment(1).'/'.@$v->id); ?>" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list mg-t-30">
+                        <div class="cmp-tb-hd">
+                            <h2>Formularz</h2>
+                            <p>Uzupełnij formularz i zatwierdź przyciskiem ZAPISZ, aby dodać nowy wpis</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 form-margin">
+                                <div class="form-group ic-cmp-int">
+                                    <?php if(@$v->privace != ''): ?>
+                                    <a href="<?= base_url('uploads/'.$v->privace); ?>" class="files">
+                                    	<p>
+                                    	<i class="fas fa-file-download"></i> <?= $v->privace; ?>
+                                    	</p>
+                                    </a>
+                                    <?php endif; ?>
+                                    <div class="nk-int-st">
+                                        <label class="nk-label">Wybierz politykę prywatności</label>
+                                        <input id="privace" type="file" name="privace" class="form-control" value="<?= @$v->privace; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="summernote-clickable text-right" style="margin-bottom: 0;">
+                            <button class="btn btn-success btn-sm hec-save">Zapisz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

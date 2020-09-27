@@ -1,0 +1,56 @@
+.ml-2 {
+	margin-left: .5rem;
+} 
+.ml-3 {
+	margin-left: .75rem;
+}
+.logo_url {
+	font-weight: bold;
+	color: #fff;
+}
+.logo_url:hover {
+	color: #E46A76;
+}
+.float-right {
+	float: right;
+}
+.form-group {
+	display: block;
+}
+.form-margin {
+	margin-bottom: 30px;
+}
+.alert {
+	margin-bottom: 0;
+	margin-top: 30px;
+}
+.img-thumbnail {
+	border: 1px solid #ebebeb;
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+.active_color {
+	font-weight: bold;
+	color: #00C292 !important;
+}
+#photoViewer, #logoViewer, #faviconViewer {
+	position: relative;
+	display: inline-block;
+}
+.remove-button {
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	padding: 3px 5px;
+	background: #f00;
+	color: #fff;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.global_alert {
+	position: absolute;
+	top: 15%;
+	right: 0;
+	width: 20%;
+	z-index: 99999;
+}

@@ -1,0 +1,45 @@
+    <script src="<?= assetsUrl(); ?>js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/bootstrap.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/wow.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/jquery-price-slider.js"></script>
+    <script src="<?= assetsUrl(); ?>js/owl.carousel.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/jquery.scrollUp.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/meanmenu/jquery.meanmenu.js"></script>
+    <script src="<?= assetsUrl(); ?>js/counterup/jquery.counterup.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/counterup/waypoints.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/counterup/counterup-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="<?= assetsUrl(); ?>js/jvectormap/jvectormap-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/sparkline/sparkline-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/flot/jquery.flot.js"></script>
+    <script src="<?= assetsUrl(); ?>js/flot/jquery.flot.resize.js"></script>
+    <script src="<?= assetsUrl(); ?>js/flot/curvedLines.js"></script>
+    <script src="<?= assetsUrl(); ?>js/flot/flot-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/knob/jquery.knob.js"></script>
+    <script src="<?= assetsUrl(); ?>js/knob/jquery.appear.js"></script>
+    <script src="<?= assetsUrl(); ?>js/knob/knob-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/wave/waves.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/wave/wave-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/todo/jquery.todo.js"></script>
+    <script src="<?= assetsUrl(); ?>js/plugins.js"></script>
+    <script src="<?= assetsUrl(); ?>js/chat/moment.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/chat/jquery.chat.js"></script>
+    <script src="<?= assetsUrl(); ?>js/main.js"></script>
+    <script src="<?= assetsUrl(); ?>js/data-table/jquery.dataTables.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/data-table/data-table-act.js"></script>
+    <script src="<?= assetsUrl(); ?>js/dropzone/dropzone.js"></script>
+    <script src="<?= assetsUrl(); ?>js/bootstrap-select/bootstrap-select.js"></script>
+    <script src="<?= assetsUrl(); ?>js/summernote/summernote-updated.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/summernote/summernote-active.js"></script>
+    <script src="<?= assetsUrl(); ?>js/photoHelper.js"></script>
+    <script src="<?= assetsUrl(); ?>js/charts/Chart.js"></script>
+    <?php if($this->uri->segment(1) == 'statistics' || $this->uri->segment(1) == 'yesterday' || $this->uri->segment(1) == 'lastweek' || $this->uri->segment(1) == 'lastmonth'): ?>
+    <script>loadChart()</script>
+    <?php endif; ?>
+    <script src="<?= assetsUrl(); ?>js/color-picker/farbtastic.min.js"></script>
+    <script src="<?= assetsUrl(); ?>js/color-picker/color-picker.js"></script>
+    <script src="<?= assetsUrl(); ?>js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="<?= assetsUrl(); ?>js/datapicker/datepicker-active.js"></script>
