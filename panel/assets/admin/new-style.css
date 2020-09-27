@@ -1,0 +1,16 @@
+.ml-2 {
+	margin-left: .5rem;
+} 
+.ml-3 {
+	margin-left: .75rem;
+}
+.logo_url {
+	font-weight: bold;
+	color: #fff;
+}
+.logo_url:hover {
+	color: #E46A76;
+}
+.float-right {
+	float: right;
+}
