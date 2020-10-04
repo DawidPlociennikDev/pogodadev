@@ -1,11 +1,9 @@
 
 <template>
-  <div class="container">
-    <h4 class="text-center mb-3">Zmiany jakości powietrza w roku <span class="chart_title">2019</span></h4>
+  <div>
     <GChart
       type="LineChart"
       :data="chartData"
-      :options="chartOptions"
     />
   </div>
 </template>
@@ -21,6 +19,7 @@
 
 <script>
 import { GChart } from 'vue-google-charts'
+import axios from 'axios';
 
 export default {
   components: {
@@ -28,28 +27,39 @@ export default {
   },
   data () {
     return {
-      // Array will be automatically processed with visualization.arrayToDataTable function
+      id: this.$route.params.id,
+      param: [],
       chartData: [
-        ['Miesiąc', 'PM 1'],
-        ['Styczeń', 6],
-        ['Luty', 4],
-        ['Marzec', 5],
-        ['Kwiecień', 2],
-        ['Maj', 2],
-        ['Czerwiec', 1],
-        ['Lipiec', 0],
-        ['Sierpień', 0],
-        ['Wrzesień', 1],
-        ['Październik', 1],
-        ['Listopad', 3],
-        ['Grudzień', 7],
-      ],
-      chartOptions: {
-        chart: {
-          title: 'Jakość powietrza',
-          subtitle: 'Jakość powietrza w roku: 2019',
-        }
-      }
+        ["Miesiąc", "Parametr"],
+      ]
+      // chartData: [
+      //   ['Miesiąc', 'PM 1'],
+      //   ['Styczeń', 6],
+      //   ['Luty', 4],
+      //   ['Marzec', 5],
+      //   ['Kwiecień', 2],
+      //   ['Maj', 2],
+      //   ['Czerwiec', 1],
+      //   ['Lipiec', 0],
+      //   ['Sierpień', 0],
+      //   ['Wrzesień', 1],
+      //   ['Październik', 1],
+      //   ['Listopad', 3],
+      //   ['Grudzień', 7],
+      // ],
+    }
+  },
+  async created() {
+    const apiParam = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/apiHistoryParam/'+this.id;
+    try {
+        const res = await axios.get(apiParam);
+        this.param = res.data.reverse();
+        this.param.forEach(element => {
+          var array = [element.date, parseFloat(element.value)];
+          this.chartData.push(array);
+        });
+    } catch(err) {
+        console.log(err);
     }
   }
 }

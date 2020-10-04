@@ -38,26 +38,20 @@
         <?php endif; ?>
 
         <div class="form-group">
-          <input type="text" class="form-control" name="login" placeholder="Wprowadź login lub adres e-mail">
+        	<label>Kod weryfikacyjny:</label>
+          <input id="codeMask" type="text" class="form-control" name="login" placeholder="___ ___ ___">
         </div>
-        <div class="form-group">
-          <input type="password" class="form-control" name="password" placeholder="Wprowadź hasło">
-          <a href="<?php echo base_url(); ?>home/reset_pass" class="tx-info tx-12 d-block mg-t-10 link">Zapomniałem hasło</a>
-        </div>
-        <div class="form-group">
-            <label class="ckbox">
-                <input type="checkbox" name="remember" type="1" 
-                <?php if(isset($_COOKIE['remember']) && $_COOKIE['remember'] == 1){echo "checked";} ?>>
-                <span>Zapamiętaj mnie</span>
-            </label>
-        </div>
-        <button type="submit" class="btn btn-info btn-block">Zaloguj się</button>
+        <button type="submit" class="btn btn-info btn-block">Potwierdź</button>
       </div>
     </form>
 
     <script src="<?php echo base_url(); ?>assets/login/lib/jquery/jquery.js"></script>
     <script src="<?php echo base_url(); ?>assets/login/lib/popper.js/popper.js"></script>
-    <script src="<?php echo base_url(); ?>assets/login/lib/bootstrap/bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/login/lib/bootstrap/bootstrap.js"></script>    
+    <script src="<?php echo base_url(); ?>assets/login/lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script type="text/javascript">
+        $('#codeMask').mask('999 999 999');
+    </script>
     
   </body>
 </html>

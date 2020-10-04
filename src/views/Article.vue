@@ -12,7 +12,7 @@
          <small>{{ post.subtitle }}</small>
         </h4>
         <div class="text-center">
-          <img :src="'http://localhost/DawidPlociennikDev.github.io/admin/uploads/' + post.photo" class="img-thumbnail my-3 mx-auto">
+          <img :src="'https://dawidplociennikdev.przedprojekt.com/admin/uploads/' + post.photo" class="img-thumbnail my-3 mx-auto">
         </div>
         <div>
          <span v-html="tagsDesc(post.description)"></span>
@@ -72,7 +72,7 @@ export default {
       }
   },
   async created() {
-    const api = 'http://dawidplociennikdev.przedprojekt.com/admin/articles/apiOne/'+this.id;
+    const api = 'https://dawidplociennikdev.przedprojekt.com/admin/articles/apiOne/'+this.id;
     try {
       const res = await axios.get(api);
       this.post =  res.data;

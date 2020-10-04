@@ -1,16 +1,16 @@
 <template>
     <div class="container">
         <div class="paramsPage">
-            <h1 class="header">PM 2.5</h1>
-            <h4>
-                Aktualny stan powietrza w okolicy wynosi: <span class="special ml-3">0 </span>μg/m3
-            </h4>
-            <h4>
-                Norma dla tego parametru wynosi: <span class="special ml-3">20 </span>μg/m3
-            </h4>
-            <h4 class="mt-4">
-                Jakość powietrza jest dobra. Zanieczyszczenia powietrza nie stanowią zagrożenia. Warunki idealne na aktywności na zewnątrz.
-            </h4>
+            <h3 class="header">{{ param.title }}</h3>
+            <div>
+                Aktualna wartość dla tego parametru wynosi: <span class="special ml-3">{{ param.value }} </span>{{ param.unit }}
+            </div>
+            <div v-if="param.regular">
+                Norma dla tego parametru wynosi: <span class="special ml-3">{{ param.regular }} </span>{{ param.unit }}
+            </div>
+            <div class="mt-4">
+                {{ param.short_desc }}
+            </div>
             <hr>
             <ChartComp />
         </div>
@@ -22,7 +22,9 @@
   margin-top: 45px;
   padding-bottom: 45px;
 }
-
+div {
+    font-size: 1.2rem;
+}
 .paramsPage {
     background: rgba(255,255,255, .7);
     padding: 30px;
@@ -42,7 +44,7 @@
  .special {
      font-weight: 700; 
      color: #42b983;
-     font-size: 150%;
+     font-size: 1.5rem;
  }
 
 .small {
@@ -53,32 +55,29 @@
 
 <script>
 import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardHeader, mdbCardBody, mdbCardTitle, mdbCardText, mdbCardFooter, mdbCardUp, mdbCardAvatar, mdbCardGroup, mdbBtn, mdbView, mdbMask, mdbIcon } from 'mdbvue';
-
 import ChartComp from '@/components/ChartComp.vue'
-
 import axios from 'axios';
 
-const api = 'https://api.looko2.com/?method=GetLOOKO&id=5CCF7F0C2E8B&token=1570445090';
-
 export default {
-  name: 'Params',
-  data() {
-      return {
-          params: []
-      }
-  },
-  async created() {
-    try {
-        const res = await axios.get(api);
-        this.params = res.data;
-        console.log(this.params);
-    } catch(err) {
-        console.log(err);
-    }
-  },
-  props: {
-    msg: String
-  },
+    name: 'Params',
+    data() {
+        return {
+            id: this.$route.params.id,
+            param: []
+        }
+    },
+    async created() {
+        const apiParam = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/apiOne/'+this.id;
+        try {
+            const res = await axios.get(apiParam);
+            this.param = res.data;
+        } catch(err) {
+            console.log(err);
+        }
+    },
+    props: {
+        msg: String
+    },
 	components: {
         ChartComp,
 		mdbContainer,

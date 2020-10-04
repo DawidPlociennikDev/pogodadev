@@ -161,3 +161,6 @@ input {
 .select2-container--default .select2-search--dropdown .select2-search__field {
     color: black;
 }
+.ckbox span:after {
+    background-color: #212121;
+}

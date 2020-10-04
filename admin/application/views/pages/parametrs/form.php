@@ -42,6 +42,22 @@
                             </div>
                             <div class="col-xs-12 form-margin">
                                 <div class="form-group ic-cmp-int">
+                                    <div class="nk-int-st">
+                                        <label class="nk-label">Jednostka <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="unit" placeholder="Wymagany" value="<?= @$v->unit; ?>" <?= $readonly; ?> required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 form-margin">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="nk-int-st">
+                                        <label class="nk-label">Norma parametru <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="regular" placeholder="Wymagany" value="<?= @$v->regular; ?>" <?= $readonly; ?> required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 form-margin">
+                                <div class="form-group ic-cmp-int">
                                     <div class="nk-container fm-cmp-mg">
                                         <div class="input-group form-group form-elet-mg">
                                             <label class="nk-label">Kolor <span class="text-danger">*</span></label>

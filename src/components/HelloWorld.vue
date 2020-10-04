@@ -84,6 +84,7 @@
   }
   .content {
     height: 100px;
+    font-size: 1rem;
   }
   .rgba-black-strong, .rgba-black-strong:after {
       background-color: rgba(0,0,0,0.8);
@@ -98,10 +99,10 @@
 <script>
 import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardHeader, mdbCardBody, mdbCardTitle, mdbCardText, mdbCardFooter, mdbCardUp, mdbCardAvatar, mdbCardGroup, mdbBtn, mdbView, mdbMask, mdbIcon } from 'mdbvue';
 import axios from 'axios';
-const api = 'http://api.looko2.com/?method=GetLOOKO&id=5CCF7F0C2E8B&token=1570445090';
-const apiQualityAir = 'http://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/1';
-const apiTemperature = 'http://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/2';
-const apiHumidity = 'http://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/3';
+const api = 'https://api.looko2.com/?method=GPSGetClosestLooko&lat=50.012054&lon=20.116871&token=1570445090';
+const apiQualityAir = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/1';
+const apiTemperature = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/2';
+const apiHumidity = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/3';
 
 export default {
   name: 'HelloWorld',
@@ -117,7 +118,6 @@ export default {
     try {
         const res = await axios.get(api);
         this.params = res.data;
-        
         const resQualityAir = await axios.get(apiQualityAir);
         this.qualityair = resQualityAir.data;
         const resTemperature = await axios.get(apiTemperature);

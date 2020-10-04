@@ -24,13 +24,11 @@
       <mdb-navbar-toggler>
         <mdb-navbar-nav id="nav" center>
           <router-link to="/"><mdb-nav-item href="#" active>Strona główna</mdb-nav-item></router-link>
-          <mdb-nav-item href="http://www.pwsz.legnica.edu.pl/">O uczelni PWSZ</mdb-nav-item>
+          <mdb-nav-item href="https://www.pwsz.legnica.edu.pl/">O uczelni PWSZ</mdb-nav-item>
           <mdb-dropdown tag="li" class="nav-item">
             <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>Paramtery powietrza</mdb-dropdown-toggle>
-            <mdb-dropdown-menu>
-              <router-link to="/params/1" class="link_dropdown">PM 1</router-link>
-              <router-link to="/params/2" class="link_dropdown">PM 2.5</router-link>
-              <router-link to="/params/3" class="link_dropdown">PM 10</router-link>
+            <mdb-dropdown-menu >
+              <router-link v-for="item in paramsMenu" :key="item.id" :to="`/params/` + item.id" class="link_dropdown">{{ item. title }}</router-link>
             </mdb-dropdown-menu>
           </mdb-dropdown>
          <router-link to="/blog"><mdb-nav-item href="#" active>Blog</mdb-nav-item></router-link>
@@ -133,20 +131,19 @@
   import { mdbNavbar, mdbNavbarBrand, mdbNavbarToggler, mdbNavbarNav, mdbNavItem, mdbDropdown, mdbDropdownMenu, mdbDropdownToggle, mdbInput, mdbDropdownItem, mdbIcon } from 'mdbvue';
   
   import axios from 'axios';
-  const api = 'http://nowa-www.przedprojekt.com/api/offer';
+  const apiParams = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api';
 
   export default {
     name: 'App',
     data() {
         return {
-            blogs: []
+            paramsMenu: []
         }
     },
     async created() {
       try {
-          const res = await axios.get(api);
-          this.blogs = res.data.data.reverse();
-          console.log(this.blogs);
+          const res = await axios.get(apiParams);
+          this.paramsMenu = res.data;
       } catch(err) {
           console.log(err);
       }

@@ -63,7 +63,7 @@
 import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardHeader, mdbCardBody, mdbCardTitle, mdbCardText, mdbCardFooter, mdbCardUp, mdbCardAvatar, mdbCardGroup, mdbBtn, mdbView, mdbMask, mdbIcon } from 'mdbvue';
 import axios from 'axios';
 
-const api = 'http://dawidplociennikdev.przedprojekt.com/admin/links/api';
+const api = 'https://dawidplociennikdev.przedprojekt.com/admin/links/api';
 
 export default {
     name: 'Links',
