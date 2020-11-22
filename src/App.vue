@@ -25,12 +25,13 @@
         <mdb-navbar-nav id="nav" center>
           <router-link to="/"><mdb-nav-item href="#" active>Strona główna</mdb-nav-item></router-link>
           <mdb-nav-item href="https://www.pwsz.legnica.edu.pl/">O uczelni PWSZ</mdb-nav-item>
-          <mdb-dropdown tag="li" class="nav-item">
+          <router-link to="/param_page"><mdb-nav-item href="#" active>Parametry powietrza</mdb-nav-item></router-link>
+          <!-- <mdb-dropdown tag="li" class="nav-item">
             <mdb-dropdown-toggle tag="a" navLink color="stylish" slot="toggle" waves-fixed>Paramtery powietrza</mdb-dropdown-toggle>
             <mdb-dropdown-menu >
               <router-link v-for="item in paramsMenu" :key="item.id" :to="`/params/` + item.id" class="link_dropdown">{{ item. title }}</router-link>
             </mdb-dropdown-menu>
-          </mdb-dropdown>
+          </mdb-dropdown> -->
          <router-link to="/blog"><mdb-nav-item href="#" active>Blog</mdb-nav-item></router-link>
          <router-link to="/links"><mdb-nav-item href="#" active>Ciekawe linki</mdb-nav-item></router-link>
         </mdb-navbar-nav>
@@ -103,6 +104,11 @@
 }
 .router-anim-leave-active {
   animation: going .5s;
+}
+
+.btn {
+  font-weight: bold;
+  text-shadow: 0 0 10px black;
 }
 
 @keyframes going {

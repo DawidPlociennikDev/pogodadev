@@ -4,6 +4,7 @@
     <GChart
       type="LineChart"
       :data="chartData"
+      :options="chartOptions"
     />
   </div>
 </template>
@@ -25,13 +26,22 @@ export default {
   components: {
     GChart
   },
+  props: {
+    lineColor: String
+  },
   data () {
     return {
       id: this.$route.params.id,
       param: [],
       chartData: [
         ["Miesiąc", "Parametr"],
-      ]
+      ],
+      chartOptions: {
+        legend: 'none',
+        colors: [this.lineColor],
+        pointSize: 10,
+        height: 400
+      },
       // chartData: [
       //   ['Miesiąc', 'PM 1'],
       //   ['Styczeń', 6],

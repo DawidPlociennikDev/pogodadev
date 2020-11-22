@@ -1,6 +1,8 @@
 <template>
     <div class="container">
         <div class="paramsPage">
+            <a @click="$router.go(-1)" title="Powrót"><mdb-icon  icon="chevron-left" /> powrót</a>
+            <hr>
             <h3 class="header">{{ param.title }}</h3>
             <div>
                 Aktualna wartość dla tego parametru wynosi: <span class="special ml-3">{{ param.value }} </span>{{ param.unit }}
@@ -12,7 +14,9 @@
                 {{ param.short_desc }}
             </div>
             <hr>
-            <ChartComp />
+            <div v-if="renderChart">
+                <ChartComp :lineColor="color" />
+            </div>
         </div>
     </div>
 </template>
@@ -63,14 +67,19 @@ export default {
     data() {
         return {
             id: this.$route.params.id,
-            param: []
+            param: [],
+            color: '',
+            renderChart: Boolean
         }
     },
     async created() {
+        this.renderChart = false;
         const apiParam = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/apiOne/'+this.id;
         try {
             const res = await axios.get(apiParam);
             this.param = res.data;
+            this.color = res.data.color;
+            this.renderChart = true;
         } catch(err) {
             console.log(err);
         }

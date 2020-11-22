@@ -27,10 +27,17 @@ const routes = [
     }
   },
   {
+    path: '/param_page',
+    name: 'ParamPage',
+    component: function () {
+      return import('../views/ParamPage.vue')
+    }
+  },
+  {
     path: '/params/:id',
     name: 'Params',
     component: function () {
-      return import('../views/ParamPage.vue')
+      return import('../views/ParamDetail.vue')
     }
   },
   {

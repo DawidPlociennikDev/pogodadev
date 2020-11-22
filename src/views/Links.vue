@@ -1,7 +1,7 @@
 <template>
   <mdb-container>
     <mdb-row>
-      <mdb-col sm="4" class="mx-auto mt-4" v-for="item in links" :key="item.id">
+      <mdb-col sm="4" lg="6" class="mx-auto mt-4" v-for="item in links" :key="item.id">
         <mdb-card class="card-image h-100 air_bg">
           <div class="text-white h-100 text-center d-flex align-items-center rgba-black-strong py-5 px-4 h-100">
             <div>
