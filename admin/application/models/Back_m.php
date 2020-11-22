@@ -72,6 +72,12 @@ class Back_m extends CI_Model
         return $query;
     }
 
+    public function update_by_email($table, $data, $email) {
+        $this->db->where(['email' => $email]);
+        $query = $this->db->update($table, $data);
+        return $query;
+    }
+
     public function delete($table, $id) {
         $this->db->where(['id' => $id]);
         $query = $this->db->delete($table);

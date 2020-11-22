@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/login/css/style.css">
   </head>
   <body>
-    <form method="post" action="<?php echo base_url(); ?>" class="d-flex align-items-center justify-content-center bg-gray-900 ht-100v">
+    <form method="post" action="<?php echo base_url('home/confirm_code'); ?>" class="d-flex align-items-center justify-content-center bg-gray-900 ht-100v">
       <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
         <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span> PWSZ <span class="tx-normal">]</span></div>
         <div class="tx-center mg-b-60">Panel administracyjny dla Perfekcjonisty</div>
@@ -39,7 +39,7 @@
 
         <div class="form-group">
         	<label>Kod weryfikacyjny:</label>
-          <input id="codeMask" type="text" class="form-control" name="login" placeholder="___ ___ ___">
+          <input id="codeMask" type="text" class="form-control" name="code" placeholder="___ ___ ___" required>
         </div>
         <button type="submit" class="btn btn-info btn-block">Potwierdź</button>
       </div>
@@ -50,7 +50,7 @@
     <script src="<?php echo base_url(); ?>assets/login/lib/bootstrap/bootstrap.js"></script>    
     <script src="<?php echo base_url(); ?>assets/login/lib/jquery.maskedinput/jquery.maskedinput.js"></script>
     <script type="text/javascript">
-        $('#codeMask').mask('999 999 999');
+        $('#codeMask').mask('999999999');
     </script>
     
   </body>

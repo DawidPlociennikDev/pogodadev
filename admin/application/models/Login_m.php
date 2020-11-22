@@ -52,8 +52,8 @@ class Login_m extends CI_Model
     }
 
     public function check_code($code) {
-        $user = $this->back_m->get_where('users', $_SESSION['email'], 'email');
-        if($code == $user->code) {
+        $user = $this->back_m->get_where('users', 'email', $_SESSION['email']);
+        if($code == $user->code_verify) {
             setcookie('id', $_SESSION['id'], time() + (86400 * 30), "/");
             setcookie('first_name', $_SESSION['first_name'], time() + (86400 * 30), "/");
             setcookie('last_name', $_SESSION['last_name'], time() + (86400 * 30), "/");
