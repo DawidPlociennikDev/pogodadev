@@ -14,7 +14,7 @@
                 {{ param.short_desc }}
             </div>
             <hr>
-            <div v-if="renderChart">
+            <div v-if="renderChart && id != 1">
                 <ChartComp :lineColor="color" />
             </div>
         </div>
