@@ -138,6 +138,14 @@
   
   import axios from 'axios';
   const apiParams = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api';
+  const apiSensor = 'https://api.looko2.com/?method=GPSGetClosestLooko&lat=50.012054&lon=20.116871&token=1570445090';
+
+  import Vue from 'vue'
+  import VueNativeNotification from 'vue-native-notification'
+  
+  Vue.use(VueNativeNotification, {
+    requestOnNotify: true
+  })
 
   export default {
     name: 'App',
@@ -150,6 +158,15 @@
       try {
           const res = await axios.get(apiParams);
           this.paramsMenu = res.data;
+
+          const resParma = await axios.get(apiSensor);
+          this.param = resParma.data;
+
+          this.notify();
+          setInterval(() => {
+            this.notify();
+          }, 60 * 1000);
+
       } catch(err) {
           console.log(err);
       }
@@ -166,6 +183,28 @@
       mdbDropdownItem,
       mdbInput,
       mdbIcon
+    },
+  methods: {
+    notify () {
+      const today = new Date();
+      const time = today.getHours() + '' + today.getMinutes();
+      if (time == 1210) {
+        const notification = {
+          title: 'PWSZ Pogoda - najnowsze pomiary z czujników',
+          options: {
+            body: 'Jakoś powietrza: ' + this.param.IJPString + "\n" + 
+                  'Temperatura na zewnątrz wynosi: ' + this.param.Temperature + '°C' + "\n" + 
+                  'Wilgonotść powietrza wynosi: ' + this.param.Humidity + '%'
+          },
+          events: {
+            onclick: function () {
+              window.location.href = "/"
+            },
+          }
+        }
+        this.$notification.show(notification.title, notification.options, notification.events)
+      }
     }
+  }
   }
 </script>

@@ -116,14 +116,15 @@ export default {
   },
   async created() {
     try {
-        const res = await axios.get(api);
-        this.params = res.data;
-        const resQualityAir = await axios.get(apiQualityAir);
-        this.qualityair = resQualityAir.data;
-        const resTemperature = await axios.get(apiTemperature);
-        this.temperature = resTemperature.data;
-        const resHumidity = await axios.get(apiHumidity);
-        this.humidity = resHumidity.data;
+      const res = await axios.get(api);
+      this.params = res.data;
+      const resQualityAir = await axios.get(apiQualityAir);
+      this.qualityair = resQualityAir.data;
+      const resTemperature = await axios.get(apiTemperature);
+      this.temperature = resTemperature.data;
+      const resHumidity = await axios.get(apiHumidity);
+      this.humidity = resHumidity.data;
+
     } catch(err) {
         console.log(err);
     }
@@ -149,6 +150,6 @@ export default {
 		mdbView,
 		mdbMask,
 		mdbIcon
-	}
+	},
 }
 </script>
