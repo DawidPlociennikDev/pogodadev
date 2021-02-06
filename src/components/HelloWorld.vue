@@ -9,7 +9,7 @@
                 <h5 class="light-green-text">
                   <mdb-icon icon="cloud" /> {{ qualityair.title }}</h5>
                 <mdb-card-title tag="h3" class="pt-2">
-                  <strong style="font-weight: 700;"> {{ params.IJPString }} </strong>
+                  <!-- <strong style="font-weight: 700;"> {{ params.IJPString }} </strong> -->
                 </mdb-card-title>
               </div>
               <p class="content">
@@ -32,7 +32,7 @@
                 <h5 class="deep-orange-text">
                   <mdb-icon icon="thermometer-three-quarters" /> {{ temperature.title }}</h5>
                   <mdb-card-title tag="h3" class="pt-2">
-                    <strong style="font-weight: 700;">{{ params.Temperature }}&deg;C</strong>
+                    <!-- <strong style="font-weight: 700;">{{ params.Temperature }}&deg;C</strong> -->
                   </mdb-card-title>
               </div>
               <p class="content">
@@ -55,7 +55,7 @@
                 <h5 class="light-blue-text">
                   <mdb-icon icon="tint" /> {{ humidity.title }}</h5>
                 <mdb-card-title tag="h3" class="pt-2">
-                  <strong style="font-weight: 700;">{{ params.Humidity }}%</strong>
+                  <!-- <strong style="font-weight: 700;">{{ params.Humidity }}%</strong> -->
                 </mdb-card-title>
               </div>
               <p class="content">
@@ -99,7 +99,7 @@
 <script>
 import { mdbContainer, mdbRow, mdbCol, mdbCard, mdbCardImage, mdbCardHeader, mdbCardBody, mdbCardTitle, mdbCardText, mdbCardFooter, mdbCardUp, mdbCardAvatar, mdbCardGroup, mdbBtn, mdbView, mdbMask, mdbIcon } from 'mdbvue';
 import axios from 'axios';
-const api = 'https://api.looko2.com/?method=GPSGetClosestLooko&lat=50.012054&lon=20.116871&token=1570445090';
+//const api = 'https://api.looko2.com/?method=GPSGetClosestLooko&lat=50.012054&lon=20.116871&token=1570445090';
 const apiQualityAir = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/1';
 const apiTemperature = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/2';
 const apiHumidity = 'https://dawidplociennikdev.przedprojekt.com/admin/parametrs/api_startpage/3';
@@ -116,8 +116,8 @@ export default {
   },
   async created() {
     try {
-      const res = await axios.get(api);
-      this.params = res.data;
+      // const res = await axios.get(api);
+      // this.params = res.data;
       const resQualityAir = await axios.get(apiQualityAir);
       this.qualityair = resQualityAir.data;
       const resTemperature = await axios.get(apiTemperature);
